@@ -2,35 +2,42 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../app/authSlice";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 const Sidebar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user } = useSelector((state) => state.auth);
+    const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light");
+
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     const handleLogout = () => {
         dispatch(logout());
-        toast.success("Logged out successfully!");
+        toast.success("Logged out successfully");
         navigate("/login");
     };
 
     const navItems = [
-        { path: "/dashboard", label: "Dashboard", icon: "📊" },
-        { path: "/students", label: "Students", icon: "🎓" },
+        { path: "/dashboard", label: "Dashboard", icon: "DB" },
+        { path: "/students", label: "Students", icon: "ST" },
         ...(user?.role === "admin"
-            ? [{ path: "/audit-logs", label: "Audit Logs", icon: "📋" }]
+            ? [{ path: "/audit-logs", label: "Audit Logs", icon: "AL" }]
             : []),
     ];
 
     return (
-        <div className="sidebar">
-            {/* Logo */}
+        <aside className="sidebar">
             <div className="sidebar-logo">
-                <span className="sidebar-logo-icon">🎓</span>
-                <span className="sidebar-logo-text">SMS</span>
+                <div>
+                    <span className="sidebar-logo-text">StudentMS</span>
+                    <span className="sidebar-logo-subtitle">School operations</span>
+                </div>
             </div>
 
-            {/* User Info */}
             <div className="sidebar-user-info">
                 <div className="sidebar-avatar">
                     {user?.name?.charAt(0).toUpperCase()}
@@ -41,7 +48,6 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            {/* Nav Links */}
             <nav className="sidebar-nav">
                 {navItems.map((item) => (
                     <NavLink
@@ -57,11 +63,22 @@ const Sidebar = () => {
                 ))}
             </nav>
 
-            {/* Logout */}
-            <button onClick={handleLogout} className="sidebar-logout-btn">
-                🚪 Logout
+            <button
+                type="button"
+                className="theme-toggle"
+                onClick={() => setTheme((value) => (value === "dark" ? "light" : "dark"))}
+                aria-label="Toggle theme"
+            >
+                <span>{theme === "dark" ? "Light mode" : "Dark mode"}</span>
+                <span className="theme-toggle-track">
+                    <span className="theme-toggle-thumb" />
+                </span>
             </button>
-        </div>
+
+            <button onClick={handleLogout} className="sidebar-logout-btn">
+                Logout
+            </button>
+        </aside>
     );
 };
 

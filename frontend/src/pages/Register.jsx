@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import API from "../api/axios";
+import PasswordToggleIcon from "../components/PasswordToggleIcon";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -56,44 +57,51 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <div className="register-card">
+    <main className="register-container">
+      <section className="register-card" aria-labelledby="register-title">
         <div className="register-header">
-          <div className="register-logo">SMS</div>
-          <h1 className="register-title">Create Account</h1>
-          <p className="register-subtitle">Register to get started</p>
+          <div>
+            <p className="eyebrow">Staff access</p>
+            <h1 id="register-title" className="register-title">Create Account</h1>
+            <p className="register-subtitle">Register as an admin or teacher.</p>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit} className="register-form">
           <div className="register-input-group">
-            <label className="register-label">FULL NAME</label>
+            <label className="register-label" htmlFor="name">Full Name</label>
             <input
+              id="name"
               className="register-input"
               type="text"
               name="name"
               placeholder="Enter your full name"
               value={formData.name}
               onChange={handleChange}
+              autoComplete="name"
               required
             />
           </div>
 
           <div className="register-input-group">
-            <label className="register-label">EMAIL ADDRESS</label>
+            <label className="register-label" htmlFor="email">Email Address</label>
             <input
+              id="email"
               className="register-input"
               type="email"
               name="email"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
               required
             />
           </div>
 
           <div className="register-input-group">
-            <label className="register-label">ROLE</label>
+            <label className="register-label" htmlFor="role">Role</label>
             <select
+              id="role"
               className="register-input"
               name="role"
               value={formData.role}
@@ -105,59 +113,65 @@ const Register = () => {
           </div>
 
           <div className="register-input-group">
-            <label className="register-label">PASSWORD</label>
+            <label className="register-label" htmlFor="password">Password</label>
             <div className="password-input-wrapper">
               <input
+                id="password"
                 className="register-input"
                 type={showPassword ? "text" : "password"}
                 name="password"
                 placeholder="Min 6 characters"
                 value={formData.password}
                 onChange={handleChange}
+                autoComplete="new-password"
                 required
               />
               <button
                 type="button"
                 className="password-toggle"
                 onClick={() => setShowPassword((value) => !value)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
               >
-                {showPassword ? "Hide" : "Show"}
+                <PasswordToggleIcon visible={showPassword} />
               </button>
             </div>
           </div>
 
           <div className="register-input-group">
-            <label className="register-label">CONFIRM PASSWORD</label>
+            <label className="register-label" htmlFor="confirmPassword">Confirm Password</label>
             <div className="password-input-wrapper">
               <input
+                id="confirmPassword"
                 className="register-input"
                 type={showConfirmPassword ? "text" : "password"}
                 name="confirmPassword"
-                placeholder="Re-enter your password"
+                placeholder="Re-enter password"
                 value={formData.confirmPassword}
                 onChange={handleChange}
+                autoComplete="new-password"
                 required
               />
               <button
                 type="button"
                 className="password-toggle"
                 onClick={() => setShowConfirmPassword((value) => !value)}
+                aria-label={showConfirmPassword ? "Hide password" : "Show password"}
               >
-                {showConfirmPassword ? "Hide" : "Show"}
+                <PasswordToggleIcon visible={showConfirmPassword} />
               </button>
             </div>
           </div>
 
           <button type="submit" className="register-button" disabled={loading}>
-            {loading ? "Creating Account..." : "Create Account"}
+            {loading ? "Creating..." : "Create Account"}
           </button>
         </form>
 
         <p className="register-footer">
-          Already have an account? <Link to="/login">Sign in here</Link>
+          Already have an account? <Link to="/login">Sign in</Link>
         </p>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

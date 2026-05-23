@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import API from "../api/axios";
+import PasswordToggleIcon from "../components/PasswordToggleIcon";
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -93,7 +94,6 @@ const ForgotPassword = () => {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <div className="login-logo">Reset</div>
           <h1 className="login-title">Reset Password</h1>
           <p className="login-subtitle">
             {step === 1 && "Step 1: Enter your email address"}
@@ -175,8 +175,9 @@ const ForgotPassword = () => {
                   type="button"
                   className="password-toggle"
                   onClick={() => setShowPassword((value) => !value)}
+                  aria-label={showPassword ? "Hide password" : "Show password"}
                 >
-                  {showPassword ? "Hide" : "Show"}
+                  <PasswordToggleIcon visible={showPassword} />
                 </button>
               </div>
             </div>
@@ -196,8 +197,9 @@ const ForgotPassword = () => {
                   type="button"
                   className="password-toggle"
                   onClick={() => setShowConfirmPassword((value) => !value)}
+                  aria-label={showConfirmPassword ? "Hide password" : "Show password"}
                 >
-                  {showConfirmPassword ? "Hide" : "Show"}
+                  <PasswordToggleIcon visible={showConfirmPassword} />
                 </button>
               </div>
             </div>

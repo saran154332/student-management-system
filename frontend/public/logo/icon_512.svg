@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Student Management System icon">
+  <!-- Square icon 512x512 with navy background and centered 200x200 hexagon icon -->
+  <rect width="512" height="512" fill="#0f2744" rx="32" ry="32" />
+
+  <!-- Center coordinates -->
+  <g transform="translate(256,256)">
+    <!-- Scale hexagon to 200px radius-like size -->
+    <path d="M100 0 L50 86.6025 L-50 86.6025 L-100 0 L-50 -86.6025 L50 -86.6025 Z" fill="#0f2744" transform="scale(1.0)" />
+    <g>
+      <path d="M0 -30 L80 0 L0 30 L-80 0 Z" fill="#10b981" transform="scale(1.0)" />
+      <rect x="-40" y="25" width="80" height="14" rx="3" ry="3" fill="#10b981" />
+      <path d="M60 0 C68 10, 68 30, 40 40" stroke="#0f2744" stroke-width="6" fill="none" stroke-linecap="round" />
+      <circle cx="40" cy="40" r="5" fill="#10b981" />
+    </g>
+  </g>
+
+</svg>

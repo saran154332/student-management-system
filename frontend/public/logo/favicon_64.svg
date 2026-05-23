@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Student Management System favicon">
+  <rect width="64" height="64" rx="8" ry="8" fill="#0f2744" />
+  <g transform="translate(32,32) scale(0.32)">
+    <path d="M100 0 L50 86.6025 L-50 86.6025 L-100 0 L-50 -86.6025 L50 -86.6025 Z" fill="#0f2744" />
+    <path d="M0 -30 L80 0 L0 30 L-80 0 Z" fill="#10b981" />
+  </g>
+</svg>

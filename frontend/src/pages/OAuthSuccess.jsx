@@ -34,7 +34,6 @@ const OAuthSuccess = () => {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          <div className="login-logo">SMS</div>
           <h1 className="login-title">Signing you in...</h1>
           <p className="login-subtitle">Please wait while Google login finishes.</p>
         </div>

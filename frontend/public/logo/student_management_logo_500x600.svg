@@ -1,0 +1,33 @@
+﻿<svg width="500" height="600" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Student Management System Logo</title>
+  <desc id="desc">Dark navy background logo with an emerald hexagon, neon glow, graduation cap, bold SMS text, and tagline.</desc>
+
+  <rect width="500" height="600" fill="#0d2137" />
+
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#glow)">
+    <polygon points="250,96 371,154 371,266 250,324 129,266 129,154" fill="#0d2137" stroke="#10b981" stroke-width="20" stroke-linejoin="round" />
+  </g>
+
+  <polygon points="250,122 340,170 340,250 250,298 160,250 160,170" fill="#0b1f30" />
+
+  <g transform="translate(250,210)">
+    <path d="M-62,0 L0,-28 L62,0 L0,28 Z" fill="#10b981" />
+    <path d="M-40,2 L-40,48 C-40,62 40,62 40,48 L40,2 Z" fill="#10b981" />
+    <path d="M0,-28 L0,35" stroke="#0d2137" stroke-width="14" stroke-linecap="round" />
+    <circle cx="0" cy="44" r="8" fill="#0d2137" />
+  </g>
+
+  <text x="250" y="470" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="900" letter-spacing="2" fill="#ffffff">SMS</text>
+  <text x="250" y="530" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="2.5" fill="#10b981">Educate · Manage · Grow</text>
+</svg>
