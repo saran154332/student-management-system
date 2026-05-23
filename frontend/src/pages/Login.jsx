@@ -39,6 +39,10 @@ const Login = () => {
     }
   };
 
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:5000/api/auth/google";
+  };
+
   return (
     <div className="login-container">
       <div className="login-card">
@@ -90,6 +94,15 @@ const Login = () => {
 
           <button type="submit" disabled={loading} className="login-button">
             {loading ? "Signing in..." : "Sign In"}
+          </button>
+
+          <div className="login-divider">
+            <span>or</span>
+          </div>
+
+          <button type="button" onClick={handleGoogleLogin} className="google-login-button">
+            <span className="google-login-icon">G</span>
+            Continue with Google
           </button>
         </form>
 

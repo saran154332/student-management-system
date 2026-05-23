@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ForgotPassword from "./pages/ForgotPassword";
+import OAuthSuccess from "./pages/OAuthSuccess";
 import Dashboard from "./pages/Dashboard";
 import Students from "./pages/Students";
 import AuditLogs from "./pages/AuditLogs";
@@ -30,6 +31,7 @@ function App() {
           path="/forgot-password"
           element={!token ? <ForgotPassword /> : <Navigate to="/dashboard" />}
         />
+        <Route path="/oauth-success" element={<OAuthSuccess />} />
         <Route
           path="/dashboard"
           element={token ? <Dashboard /> : <Navigate to="/login" />}

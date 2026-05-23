@@ -23,13 +23,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Routes
+router.get("/export/excel", protect, adminOnly, exportStudents);
+router.get("/dashboard/stats", protect, getDashboardStats);
+router.post("/import/excel", protect, adminOnly, upload.single("file"), importStudents);
 router.get("/", protect, getStudents);
 router.get("/:id", protect, getStudentById);
 router.post("/", protect, adminOnly, upload.single("photo"), addStudent);
 router.put("/:id", protect, adminOnly, upload.single("photo"), updateStudent);
 router.delete("/:id", protect, adminOnly, deleteStudent);
-router.get("/export/excel", protect, adminOnly, exportStudents);
-router.get("/dashboard/stats", protect, getDashboardStats);
-router.post("/import/excel", protect, adminOnly, upload.single("file"), importStudents);
 
 module.exports = router;
